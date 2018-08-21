@@ -13,8 +13,6 @@ class LoginRaw extends Component {
   static propTypes = {
     isFetching: PropTypes.bool,
     isAuth: PropTypes.bool,
-    error: PropTypes.bool,
-    errorMsg: PropTypes.string
   }
 
   state = {
@@ -50,7 +48,7 @@ class LoginRaw extends Component {
   }
 
   render() {
-    const { isFetching, error, errorMsg } = this.props;
+    const { isFetching } = this.props;
     return (
       <React.Fragment>
         <Home/>
@@ -58,8 +56,6 @@ class LoginRaw extends Component {
           onClick={this.handleClick}
           onChangeEmail={this.handleChangeEmail}
           onChangePass={this.handleChangePass}
-          // error={error}
-          // errorMsg={errorMsg}
           loading={isFetching}
           onClickAnchor={this.handleClickAnchor}
         />
@@ -72,8 +68,6 @@ const mapStateToProps = state => {
   return {
     isFetching: state.login.isFetching,
     isAuth: state.login.isAuth,
-    error: state.login.err,
-    errorMsg: state.login.message
   }
 }
 

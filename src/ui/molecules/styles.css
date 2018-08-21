@@ -1,3 +1,22 @@
+@import '~antd/dist/antd.css';
+
+.ant-select-selection--single{
+    height: 42px;
+    margin: 7.5px 0;
+}
+.ant-select-selection__rendered{
+    line-height: 42px;
+}
+.fontsmaller{
+    font-size: 14px;
+    margin-bottom: 15px !important;
+    
+}
+
+.halfinput{
+    width: 50% !important;
+}
+ 
 .input-attrs{
   width: 100%;
   font-size: 13px;

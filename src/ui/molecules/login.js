@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { LoaderButton } from '../atoms'
 import "./styles.css";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 24%;
   margin: 0 auto;
   padding: 5px;
@@ -14,13 +14,13 @@ const Wrapper = styled.div`
   text-align: center;
 `
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
   
 `
-const Header = styled.h2`
+export const Header = styled.h2`
 font-size: 24px;
 font-weight: 300;
 line-height: 1;

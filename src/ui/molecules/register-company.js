@@ -1,34 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Input } from '../atoms'
-import "./styles.css";
+import {Wrapper, Form, Header} from './login'
+import { Select, Input } from 'antd'
+import "./styles.css"
 
-const Wrapper = styled.div`
-  width: 24%;
-  margin: 0 auto;
-  padding: 5px;
-  position: absolute;
-  right: 50px;
-  top: 100px;
-  text-align: center;
-`
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  
-`
-const Header = styled.h2`
-font-size: 24px;
-font-weight: 300;
-line-height: 1;
-text-transform: uppercase;
-color: #788195;
-font-family: 'Roboto', sans-serif;
-text-align: center;
-margin-bottom: 50px;
-`
+
 const Paragraph = styled.p`
 font-size: 12px;
 font-weight: 300;
@@ -36,19 +13,86 @@ line-height: 1;
 color: #788195;
 font-family: 'Roboto', sans-serif;
 text-align: center;
-margin-bottom: 50px;
+margin: 30px 0;
 `
 
 
-export const RegisterUI = ({ onClick, onChangeName, onChangeIndustry, onChangeSubindustry}) => (
+export const RegisterUI = ({ onClick, onChangeName, value, onChange, onSearch, onFocus, style, children, onFocusSub, childrensub, onChangeSub, valuesub, onSearchSub, onFocusCompany, onSearchCompany, onChangeCompany, childrenCompany, valuecompany }) => (
   <Wrapper>
     <Form>
       <Header>Konnex</Header>
+      
+      <Select
+        onFocus={onFocusCompany}
+        showSearch={true}
+        showArrow={false}
+        labelInValue={false}
+        valuecompany={valuecompany}
+        placeholder="Find your company"
+        filterOption={true}
+        onSearch={onSearchCompany}
+        onChange={onChangeCompany}
+        style={style}
+      >
+        {childrenCompany}
+      </Select>
+      
+      <button 
+      type="submit" 
+      className='btn btn-big'
+      onClick={onClick}>
+       Continue registration
+       </button>
+      
       <Paragraph>or create new company</Paragraph>
-      <Input onChange={onChangeName} name/>
-      <Input onChange={onChangeIndustry} industry/>
-      <Input onChange={onChangeSubindustry}/>
-      <button type="submit" className='btn btn-big' onClick={onClick}>Create new company</button>
+      
+      {/*Company Name*/}
+      <Input 
+      onChange={onChangeName} 
+      size="large"
+      placeholder="Company name"
+      className='fontsmaller'
+      />
+    
+    
+    <Select
+        onFocus={onFocus}
+        showSearch={true}
+        showArrow={false}
+        labelInValue={false}
+        value={value}
+        placeholder="Industry"
+        filterOption={true}
+        onSearch={onSearch}
+        onChange={onChange}
+        style={style}
+      >
+        {children}
+      </Select>
+    
+      <Select
+        onFocus={onFocusSub}
+        showSearch={true}
+        showArrow={false}
+        labelInValue={false}
+        value={valuesub}
+        placeholder="Subindustry"
+        filterOption={true}
+        onSearch={onSearchSub}
+        onChange={onChangeSub}
+        style={style}
+      >
+        {childrensub}
+      </Select>
+   
+    
+       
+      <button 
+      type="submit" 
+      className='btn btn-big'
+      onClick={onClick}>
+       Create new company
+       </button>
       </Form>
   </Wrapper>
 )

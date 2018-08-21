@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import img from './bg.jpg'
 import logo from './logo.jpg';
+import bg2 from './bg2.jpg'
 
 
 
@@ -12,7 +13,14 @@ const HomeBg = styled.div`
   background-size: cover;
   opacity: .8;
   background: url(${img}) 100% 100% no-repeat;
-  
+`
+const WorkBg = styled.div`
+  position: absolute;
+  height: 100vh;
+  width: 68%;
+  background-size: cover;
+  opacity: .8;
+  background: url(${bg2}) 60% 60% no-repeat;
 `
 const HomeLogo = styled.img`
     position: relative;
@@ -42,6 +50,14 @@ export const Home = () => (
         <BgDark/>
         <HomeLogo src={logo}/>
      </HomeBg>
-     
+  </React.Fragment>
+)
+
+export const RegUI = () => (
+  <React.Fragment>
+    <WorkBg>
+        <BgDark/>
+        <HomeLogo src={logo}/>
+     </WorkBg>
   </React.Fragment>
 )
