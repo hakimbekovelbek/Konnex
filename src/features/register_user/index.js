@@ -1,3 +1,3 @@
-export { RegisterComp } from './register'
+export { RegisterUser } from './registeruser'
 
-export { registration } from './reducer'
+export { registrationUser } from './reducer'

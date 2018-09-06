@@ -1,8 +1,8 @@
 import { 
-    POST_REGISTRATION_REQUEST,
-    POST_REGISTRATION_SUCCESS,
-    POST_REGISTRATION_FAILURE,
-    POST_CONTINUE_REG
+    POST_REGISTRATION_USER_REQUEST,
+    POST_REGISTRATION_USER_SUCCESS,
+    POST_REGISTRATION_USER_FAILURE,
+    POST_FINISH_REG
   } from './action'
   
   const initialState = {
@@ -18,15 +18,15 @@ import {
     }
   }
   
-  export const registration = (state = initialState, action) => {
+  export const registrationUser = (state = initialState, action) => {
     switch(action.type) {
-      case POST_REGISTRATION_REQUEST:
+      case POST_REGISTRATION_USER_REQUEST:
         return {
           ...state,
           isFetching: true,
           err: false
         } 
-      case POST_REGISTRATION_SUCCESS:
+      case POST_REGISTRATION_USER_SUCCESS:
         return {
           ...state,
           isFetching: false,
@@ -34,13 +34,13 @@ import {
           data: action.data || state.data,
           message: action.message
         }
-      case POST_REGISTRATION_FAILURE:
+      case POST_REGISTRATION_USER_FAILURE:
         return {
           ...state,
           err: true,
           isFetching: false
         }
-        case POST_CONTINUE_REG:
+        case POST_FINISH_REG:
         return{
           isAuth: true
         }

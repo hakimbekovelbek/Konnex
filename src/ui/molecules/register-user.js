@@ -1,41 +1,36 @@
 import React from 'react'
 // import styled from 'styled-components'
-import {Wrapper, Form, Header} from './login'
-import { Input } from 'antd'
+import {Wrapper, Header} from './login'
 import "./styles.css"
-
-
-
-// const Paragraph = styled.p`
-// font-size: 12px;
-// font-weight: 300;
-// line-height: 1;
-// color: #788195;
-// font-family: 'Roboto', sans-serif;
-// text-align: center;
-// margin: 30px 0;
-// `
+import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Button, AutoComplete } from 'antd'
 
 
 export const RegisterUserUI = ({ 
   onClick, onChangeName,
-  //  value, onChange, onSearch, onFocus, style, children, onFocusSub, childrensub, onChangeSub, valuesub, onSearchSub, onFocusCompany, onSearchCompany, onChangeCompany, childrenCompany, valuecompany 
+  onChangeSurname,
+  onChangeMobile,
+  onChangeEmail,
+  onChangePassowrd,
+  onChangePassowrdConf,
+  onHandleSubmit,
+
+  
   }) => (
   <Wrapper>
     <Form>
       <Header>Konnex</Header>
       
   <Input.Group>
-      {/*First Name*/}
+    
       <Input 
-      // onChange={onChangeName} 
+      onChange={onChangeName} 
       size="large"
       placeholder="First name"
       className='fontsmaller halfinput'
       />
-       {/*Last Name*/}
+
       <Input 
-      // onChange={onChangeName} 
+      onChange={onChangeSurname} 
       size="large"
       placeholder="Last name"
       className='fontsmaller halfinput'
@@ -43,26 +38,28 @@ export const RegisterUserUI = ({
       </Input.Group>
       
         <Input 
-      // onChange={onChangeName} 
+      onChange={onChangeMobile} 
       size="large"
       placeholder="Mobile"
       className='fontsmaller'
       />
       <Input 
-      // onChange={onChangeName} 
+      onChange={onChangeEmail} 
+      type="email"
       size="large"
       placeholder="Email"
       className='fontsmaller'
       />
       <Input 
-      // onChange={onChangeName} 
+      onChange={onChangePassowrd} 
       type="password"
       size="large"
       placeholder="Password"
       className='fontsmaller'
       />
+          
       <Input 
-      // onChange={onChangeName} 
+      onChange={onChangePassowrdConf} 
       type="password"
       size="large"
       placeholder="Confirm Password"
@@ -76,8 +73,12 @@ export const RegisterUserUI = ({
        Sign Up
        </button>
       </Form>
+     
   </Wrapper>
 )
 
+  
 
+
+  
 

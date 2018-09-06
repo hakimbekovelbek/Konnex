@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //POST URLS
 const URL_AUTH = 'http://qa-api.konnex.us/user/auth/'
-const URL_REGISTER_USER = 'http://qa-api.konnex.us/user/register-confirm-by-username/'
+const URL_REGISTER_USER = 'http://qa-api.konnex.us/user/register/'
 const URL_REGISTER_COMPANY = 'http://qa-api.konnex.us/public/companies/'
 
 
@@ -41,27 +41,25 @@ const postLogin = ({ username, password }) => {
         // Authorization: `Token ${tokenRegister}`
       }
     }
-    
     return axios(config)
   }
   
-  const postRegisterUser = ({ username, password, first_name, last_name, mobile }) => {
+  const postRegisterUser = ({ password, first_name, last_name, mobile, username, name }) => {
     const config = {
       method: 'post',
       url: URL_REGISTER_USER,
       data: {
-          username: username,
-          password: password,
           first_name: first_name,
           last_name: last_name,
           mobile: mobile,
-          // "company": "string",
+          username: username,
+          password: password,
+          company: '1142'
       },
       headers: {
         'content-type': 'application/json',
       }
     }
-    
     return axios(config)
   }
 

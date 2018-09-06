@@ -25,7 +25,8 @@ const postLoginRequest = () => ({
   })
   
   export const logIN = () => ({
-    type: LOGIN
+    type: LOGIN,
+    isAuth: true
   })
   
   export const logOUT = () => ({

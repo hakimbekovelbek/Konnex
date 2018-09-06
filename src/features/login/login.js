@@ -5,7 +5,7 @@ import { Home } from '../home'
 import { postLogin } from './action'
 import LoginUI  from '../../ui/molecules/login'
 import PropTypes from 'prop-types'
-
+import {ROUTING} from './action.js'
 
 
 class LoginRaw extends Component {
@@ -19,10 +19,15 @@ class LoginRaw extends Component {
     username: '',
     password: ''
   }
-  
+  // componentWillReceiveProps(nextProps){
+  //   const { history } = this.props;
+  //   nextProps.isAuth && history.push(`/user`) ? d : d
+  // }
+
   componentWillReceiveProps(nextProps){
     const { history } = this.props;
-    nextProps.isAuth && history.push(`/user`)
+    nextProps.isAuth  && history.push(`/user`);
+    
   }
 
   handleChangeEmail = (e) => {

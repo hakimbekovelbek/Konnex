@@ -30,7 +30,7 @@ font-family: 'Roboto', sans-serif;
 text-align: center;
 margin-bottom: 50px;
 `
-const HeaderWelcome = styled.h1`
+export const HeaderWelcome = styled.h1`
 font-size: 70px;
 font-weight: 300;
 line-height: 1;
@@ -45,6 +45,39 @@ transition: 4s;
   color: #4fb336;
 }
 `
+
+export const NOTFOUND = styled.h1`
+font-size: 70px;
+font-weight: 300;
+line-height: 1;
+text-transform: uppercase;
+color: red;
+font-family: 'Roboto', sans-serif;
+text-align: center;
+margin-top: 200px;
+opacity: 0.7;
+transition: 4s;
+&:hover{
+  color: black;
+}
+`
+
+export const Back = styled.h1`
+font-size: 70px;
+font-weight: 300;
+line-height: 1;
+text-transform: uppercase;
+color: red;
+font-family: 'Roboto', sans-serif;
+text-align: center;
+margin-top: 50px;
+opacity: 0.7;
+transition: 4s;
+&:hover{
+  color: black;
+}
+`
+
 const Anchor = styled.a`
   color: #1890ff;
   font-family: 'Roboto';
@@ -54,13 +87,6 @@ const Anchor = styled.a`
     cursor: pointer;
   }
 `
-
-export class User extends React.Component{
-  render(){
-    return  <HeaderWelcome>Welcome, user!</HeaderWelcome>
-  }
-}
-
 
 const validate = values => {
   const errors = {}

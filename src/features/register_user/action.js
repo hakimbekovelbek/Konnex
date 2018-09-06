@@ -1,45 +1,49 @@
 import api from '../../api'
 
-export const POST_REGISTRATION_REQUEST = 'POST_REGISTRATION_REQUEST'
-export const POST_REGISTRATION_SUCCESS = 'POST_REGISTRATION_SUCCESS'
-export const POST_REGISTRATION_FAILURE = 'POST_REGISTRATION_FAILURE'
-export const POST_CONTINUE_REG = 'POST_CONTINUE_REG'
+export const POST_REGISTRATION_USER_REQUEST = 'POST_REGISTRATION_USER_REQUEST'
+export const POST_REGISTRATION_USER_SUCCESS = 'POST_REGISTRATION_USER_SUCCESS'
+export const POST_REGISTRATION_USER_FAILURE = 'POST_REGISTRATION_USER_FAILURE'
+export const POST_FINISH_REG = 'POST_FINISH_REG'
 // export const LOGOUT = 'LOGOUT'
 
 
-const postRegistrationRequest = () => ({
-    type: POST_REGISTRATION_REQUEST
+const postRegistrationUserRequest = () => ({
+    type: POST_REGISTRATION_USER_REQUEST
   })
   
-  const postRegistrationSuccess = ({ status, data, message }) => ({
-    type: POST_REGISTRATION_SUCCESS,
+  const postRegistrationUserSuccess = ({ status, data, message }) => ({
+    type: POST_REGISTRATION_USER_SUCCESS,
     ...status,
     ...data,
     ...message
   })
   
   
-  const postRegistrationFailure = (err) => ({
-    type: POST_REGISTRATION_FAILURE,
+  const postRegistrationUserFailure = (err) => ({
+    type: POST_REGISTRATION_USER_FAILURE,
     err,
   })
 
-  const postContinueReg = () =>({
-    type: POST_CONTINUE_REG
+  const postFinishReg = () =>({
+    type: POST_FINISH_REG
   })
   
-  export const postRegisterCompany = ({ name, industry, sub_industry }) => (dispatch, getState) => {
-    dispatch(postRegistrationRequest());
+  export const postRegisterUser = ({ 
+    company, 
+    first_name, last_name, mobile, username, password }) => (dispatch, getState) => {
+    dispatch(postRegistrationUserRequest());
     
-    return api.postRegisterCompany({ name, industry, sub_industry })
+    return api.postRegisterUser({ 
+      company, 
+      first_name, last_name, mobile, username, password })
       .then(res => {
-        dispatch(postRegistrationSuccess(res))
+        dispatch(postRegistrationUserSuccess(res))
         getState().registration.status === true
-          ? dispatch(postContinueReg()) : dispatch(postRegistrationFailure(true))
+          ? dispatch(postFinishReg()) : dispatch(postRegistrationUserFailure(true))
       })
       .catch(err => {
         console.log('err')
-        dispatch(postRegistrationFailure(true))
+        dispatch(postRegistrationUserFailure(true))
       })
   
   }
